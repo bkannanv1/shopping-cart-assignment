@@ -9,13 +9,21 @@ import {
 import { ProductsGrid } from "../../components/products-grid";
 
 export async function loader({ params }) {
-  const categoryId = params.categoryId;
-  return { categoryId };
+  const categoryKey = params.categoryKey;
+  return { categoryKey };
 }
 
 export default function SelectedProducts() {
-  const { categoryId } = useLoaderData();
+  const { categoryKey } = useLoaderData();
   const { categories, products } = useRouteLoaderData("products");
 
-  return <ProductsGrid products={products} />;
+  const { id: categoryId } = categories.find(
+    (category) => category.key === categoryKey
+  );
+
+  const productsForSelectedCategory = products.filter(
+    (product) => product.category === categoryId
+  );
+
+  return <ProductsGrid products={productsForSelectedCategory} />;
 }

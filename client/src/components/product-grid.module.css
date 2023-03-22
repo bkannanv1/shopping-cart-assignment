@@ -1,0 +1,8 @@
+.wrapper {
+  display: flex;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+}
