@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./products-root.module.css";
 import { Outlet, NavLink, useLoaderData } from "react-router-dom";
 import { getProductsAndCategories } from "../../api/endpoints";
+import { getAvailableCategories } from "../utils";
 
 export async function loader() {
   const { products, categories } = await getProductsAndCategories();
@@ -12,12 +13,10 @@ export default function ProductsRoot() {
   const { products, categories } = useLoaderData();
 
   return (
-    <div>
-      List of Categories
-      <ul>
-        {categories
-          .filter((category) => category.enabled)
-          .map((category) => {
+    <div className={styles.wrapper}>
+      <div className={styles.categories}>
+        <ul>
+          {getAvailableCategories(categories).map((category) => {
             const { name, id, key } = category;
             return (
               <li key={id}>
@@ -25,8 +24,11 @@ export default function ProductsRoot() {
               </li>
             );
           })}
-      </ul>
-      <Outlet />
+        </ul>
+      </div>
+      <div className={styles.products}>
+        <Outlet />
+      </div>
     </div>
   );
 }

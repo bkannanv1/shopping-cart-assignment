@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, useLoaderData } from "react-router-dom";
 import { getBannerAndCategories } from "../api/endpoints";
+import { getAvailableCategories } from "./utils";
 import styles from "./index.module.css";
 
 export async function loader() {
@@ -41,13 +42,9 @@ function BannerCard({ bannerImageUrl, bannerImageAlt }) {
 }
 
 function CategoriesView({ categories }) {
-  return categories
-    .filter((category) => category.enabled)
-    .map((category, index) => {
-      return (
-        <CategoryCard key={category.id} order={index} category={category} />
-      );
-    });
+  return getAvailableCategories(categories).map((category, index) => {
+    return <CategoryCard key={category.id} order={index} category={category} />;
+  });
 }
 
 function CategoryCard({ category, order }) {

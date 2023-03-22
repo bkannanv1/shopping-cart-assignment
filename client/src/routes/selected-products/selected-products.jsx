@@ -6,6 +6,7 @@ import {
   useLoaderData,
   useRouteLoaderData,
 } from "react-router-dom";
+import { ProductsGrid } from "../../components/products-grid";
 
 export async function loader({ params }) {
   const categoryId = params.categoryId;
@@ -16,9 +17,5 @@ export default function SelectedProducts() {
   const { categoryId } = useLoaderData();
   const { categories, products } = useRouteLoaderData("products");
 
-  return (
-    <div>
-      <h1>Products for {categoryId}</h1>
-    </div>
-  );
+  return <ProductsGrid products={products} />;
 }
