@@ -1,8 +1,7 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import styles from "./root.module.css";
 
 export default function Root() {
-  console.log(styles);
   return (
     <div className={styles.wrapper}>
       <header id="header" className={styles.header}>
@@ -11,24 +10,24 @@ export default function Root() {
           <nav>
             <ul>
               <li>
-                <a href={`/`}>Home</a>
+                <Link to={`/`}>Home</Link>
               </li>
               <li>
-                <a href={`/products`}>Products</a>
+                <Link to={`/products`}>Products</Link>
               </li>
             </ul>
           </nav>
         </div>
         <div className={styles.buttonWrapper}>
           <div className="auth-buttons">
-            <a href="/signin">Sign In</a>
-            <a href="/register">Register</a>
+            <Link to="/signin">Sign In</Link>
+            <Link to="/register">Register</Link>
           </div>
           <button>Cart button</button>
         </div>
       </header>
       <main className={styles.main}>
-        <Outlet /> Main Area
+        <Outlet />
       </main>
       <footer className={styles.footer}>Copyright</footer>
     </div>
