@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header,
+.main,
+.footer {
+  border: 1px solid red;
+}
+
+.main {
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navWrapper {
+  display: flex;
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+}
