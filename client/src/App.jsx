@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/root";
 import ErrorPage from "./error-page";
-import Index from "./routes/index";
+import Index, { loader as IndexLoader } from "./routes/index";
 import Signin from "./routes/signin";
 import Registration from "./routes/registration";
 import Products from "./routes/products";
@@ -18,6 +18,7 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <Index />,
+            loader: IndexLoader,
           },
           {
             path: "products",
