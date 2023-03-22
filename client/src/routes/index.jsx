@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 import { getBannerAndCategories } from "../api/endpoints";
 import styles from "./index.module.css";
 
@@ -51,7 +51,7 @@ function CategoriesView({ categories }) {
 }
 
 function CategoryCard({ category, order }) {
-  const { name, imageUrl, description } = category;
+  const { name, imageUrl, description, key } = category;
 
   const [imageOrder, infoOrder] =
     order % 2 === 0
@@ -68,7 +68,7 @@ function CategoryCard({ category, order }) {
       <div className={`${styles.categoryInfoWrapper} ${infoOrder}`}>
         <p>{name}</p>
         <p>{description}</p>
-        <button>Explore {name}</button>
+        <NavLink to={`products/${key}`}>{name}</NavLink>
       </div>
     </div>
   );

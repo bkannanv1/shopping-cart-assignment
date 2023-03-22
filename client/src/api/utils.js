@@ -7,7 +7,7 @@ export const getPromise = (url) => {
 };
 
 export const fetchData = async (url) => {
-  const response = getPromise(url);
+  const response = await getPromise(url);
   return await response.json();
 };
 

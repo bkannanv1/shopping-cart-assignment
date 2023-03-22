@@ -4,7 +4,13 @@ import ErrorPage from "./error-page";
 import Index, { loader as IndexLoader } from "./routes/index";
 import Signin from "./routes/signin";
 import Registration from "./routes/registration";
-import Products from "./routes/products";
+import ProductsRoot, {
+  loader as ProductsRootLoader,
+} from "./routes/products-root";
+import SelectedProducts, {
+  loader as SelectedProductsLoader,
+} from "./routes/selected-products";
+import AllProducts from "./routes/all-products";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +28,20 @@ const router = createBrowserRouter([
           },
           {
             path: "products",
-            element: <Products />,
+            element: <ProductsRoot />,
+            loader: ProductsRootLoader,
+            id: "products",
+            children: [
+              {
+                index: true,
+                element: <AllProducts />,
+              },
+              {
+                path: ":categoryId",
+                element: <SelectedProducts />,
+                loader: SelectedProductsLoader,
+              },
+            ],
           },
           {
             path: "signin",
