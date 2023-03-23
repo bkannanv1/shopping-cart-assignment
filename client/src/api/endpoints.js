@@ -1,19 +1,6 @@
-import {
-  fetchData,
-  getPromise,
-  fetchDataParallely,
-  getPromisesForJson,
-} from "./utils";
+import { getPromise, fetchDataParallely, getPromisesForJson } from "./utils";
 
 const URL = "http://localhost:5000";
-
-// const getBanners = async () => {
-//   return await fetchData(`${URL}/banners`);
-// };
-
-// const getCategories = async () => {
-//   return await fetchData(`${URL}/categories`);
-// };
 
 const getBannerAndCategories = async () => {
   const promises = [
@@ -100,9 +87,63 @@ const loginUser = (userInfo) => {
   }
 };
 
+const BAZAAR__CART_KEY = "cart";
+
+const getCartItems = () => {
+  const existingCartRaw = window.sessionStorage.getItem(BAZAAR__CART_KEY);
+  const cartData = existingCartRaw ? JSON.parse(existingCartRaw) : [];
+  return cartData;
+};
+
+const addCartItems = (itemId) => {
+  const items = [
+    {
+      id: 1,
+      quantity: 1,
+    },
+    {
+      id: 2,
+      quantity: 4,
+    },
+  ];
+
+  const existingCartRaw = window.sessionStorage.getItem(BAZAAR__CART_KEY);
+  const existingCartItems = existingCartRaw ? JSON.parse(existingCartRaw) : [];
+
+  const alreadyAddedItem = existingCartItems.find((item) => item.id === itemId);
+
+  let updatedItems = [];
+  if (alreadyAddedItem) {
+    updatedItems = existingCartItems.map((item) => {
+      if (item.id === alreadyAddedItem.id) {
+        return {
+          ...item,
+          quantity: item.quantity + 1,
+        };
+      }
+      return item;
+    });
+  } else {
+    updatedItems = [
+      ...existingCartItems,
+      {
+        id: itemId,
+        quantity: 1,
+      },
+    ];
+  }
+
+  window.sessionStorage.setItem(BAZAAR__CART_KEY, JSON.stringify(updatedItems));
+  return updatedItems;
+};
+
+const updateItemInCart = (itemId, action) => {};
+
 export {
   getBannerAndCategories,
   getProductsAndCategories,
   registerUser,
   loginUser,
+  getCartItems,
+  addCartItems,
 };

@@ -10,7 +10,7 @@ export async function loader() {
 }
 
 export default function ProductsRoot() {
-  const { products, categories } = useLoaderData();
+  const { categories } = useLoaderData();
 
   return (
     <div className={styles.wrapper}>

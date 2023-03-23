@@ -1,5 +1,12 @@
 import { Outlet, Link } from "react-router-dom";
+import { Cart } from "../../components/cart";
 import styles from "./root.module.css";
+import { getCartItems } from "../../api/endpoints";
+
+export async function loader() {
+  const cartItems = getCartItems();
+  return { cartItems };
+}
 
 export default function Root() {
   return (
@@ -23,7 +30,7 @@ export default function Root() {
             <Link to="/signin">Sign In</Link>
             <Link to="/register">Register</Link>
           </div>
-          <button>Cart button</button>
+          <Cart />
         </div>
       </header>
       <main className={styles.main}>
