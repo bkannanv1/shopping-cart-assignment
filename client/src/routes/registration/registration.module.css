@@ -9,8 +9,3 @@
   display: flex;
   flex-direction: column;
 }
-
-.formLabel {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}

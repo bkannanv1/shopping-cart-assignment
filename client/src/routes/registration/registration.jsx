@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./registration.module.css";
 import { Form, redirect } from "react-router-dom";
 import { registerUser } from "../../api/endpoints";
+import { Input } from "../../components/input";
 
 const REGISTRATION_FIELDS = [
   {
@@ -57,14 +58,5 @@ export default function Registration() {
         </Form>
       </div>
     </div>
-  );
-}
-
-function Input({ name, label }) {
-  return (
-    <label htmlFor={name} className={styles.formLabel}>
-      {label}
-      <input type="text" id={name} name={name} />
-    </label>
   );
 }

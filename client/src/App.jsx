@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import Index, { loader as IndexLoader } from "./routes/index";
-import Signin from "./routes/signin";
+import Signin, { action as SignInAction } from "./routes/signin";
 import Registration, {
   action as RegistrationAction,
 } from "./routes/registration";
@@ -48,6 +48,7 @@ const router = createBrowserRouter([
           {
             path: "signin",
             element: <Signin />,
+            action: SignInAction,
           },
           {
             path: "register",

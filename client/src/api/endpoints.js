@@ -11,9 +11,9 @@ const URL = "http://localhost:5000";
 //   return await fetchData(`${URL}/banners`);
 // };
 
-const getCategories = async () => {
-  return await fetchData(`${URL}/categories`);
-};
+// const getCategories = async () => {
+//   return await fetchData(`${URL}/categories`);
+// };
 
 const getBannerAndCategories = async () => {
   const promises = [
@@ -69,4 +69,40 @@ const registerUser = (newUser) => {
   }
 };
 
-export { getBannerAndCategories, getProductsAndCategories, registerUser };
+// TODO: Error handling
+const loginUser = (userInfo) => {
+  try {
+    const existingUsersRaw = window.localStorage.getItem(BAZAAR_KEY);
+    const existingUsers = existingUsersRaw ? JSON.parse(existingUsersRaw) : [];
+
+    const isValidUser = existingUsers.find(
+      (existingUser) =>
+        existingUser.email === userInfo.email &&
+        existingUser.password === userInfo.password
+    );
+    if (!isValidUser) {
+      return {
+        ok: false,
+        message: "Email or Passord is Incorrect!",
+      };
+    }
+
+    return {
+      ok: true,
+      message: "Success!",
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      ok: false,
+      message: "Unable to Login the user",
+    };
+  }
+};
+
+export {
+  getBannerAndCategories,
+  getProductsAndCategories,
+  registerUser,
+  loginUser,
+};
