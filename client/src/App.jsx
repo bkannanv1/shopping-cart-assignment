@@ -3,7 +3,9 @@ import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import Index, { loader as IndexLoader } from "./routes/index";
 import Signin from "./routes/signin";
-import Registration from "./routes/registration";
+import Registration, {
+  action as RegistrationAction,
+} from "./routes/registration";
 import ProductsRoot, {
   loader as ProductsRootLoader,
 } from "./routes/products-root";
@@ -50,6 +52,7 @@ const router = createBrowserRouter([
           {
             path: "register",
             element: <Registration />,
+            action: RegistrationAction,
           },
         ],
       },
