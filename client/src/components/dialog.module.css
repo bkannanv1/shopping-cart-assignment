@@ -76,3 +76,24 @@
     transform: translate(-50%, -50%) scale(1);
   }
 }
+
+/* Cart Item */
+
+.cartItemWrapper {
+  display: flex;
+}
+
+.nameSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.quantitySection {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cartImage {
+  width: 150px;
+  height: 150px;
+}

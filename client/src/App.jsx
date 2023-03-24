@@ -1,5 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Root, { loader as RootLoader } from "./routes/root";
+import Root, {
+  loader as RootLoader,
+  action as RootAction,
+} from "./routes/root";
 import ErrorPage from "./error-page";
 import Index, { loader as IndexLoader } from "./routes/index";
 import Signin, { action as SignInAction } from "./routes/signin";
@@ -21,6 +24,7 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     loader: RootLoader,
+    action: RootAction,
     children: [
       {
         errorElement: <ErrorPage />,

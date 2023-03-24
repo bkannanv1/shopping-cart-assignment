@@ -137,7 +137,30 @@ const addCartItems = (itemId) => {
   return updatedItems;
 };
 
-const updateItemInCart = (itemId, action) => {};
+const updateItemInCart = (itemId, action) => {
+  const existingCartRaw = window.sessionStorage.getItem(BAZAAR__CART_KEY);
+  const existingCartItems = existingCartRaw ? JSON.parse(existingCartRaw) : [];
+
+  const itemToUpdate = existingCartItems.find((item) => item.id === itemId);
+
+  let updatedItems = [];
+  if (itemToUpdate.quantity === 1 && action === "remove") {
+    updatedItems = existingCartItems.filter((item) => item.id !== itemId);
+  } else {
+    updatedItems = existingCartItems.map((item) => {
+      if (item.id === itemId) {
+        return {
+          ...item,
+          quantity: action === "add" ? item.quantity + 1 : item.quantity - 1,
+        };
+      }
+      return item;
+    });
+  }
+
+  window.sessionStorage.setItem(BAZAAR__CART_KEY, JSON.stringify(updatedItems));
+  return updatedItems;
+};
 
 export {
   getBannerAndCategories,
@@ -146,4 +169,5 @@ export {
   loginUser,
   getCartItems,
   addCartItems,
+  updateItemInCart,
 };

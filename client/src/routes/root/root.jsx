@@ -1,11 +1,22 @@
 import { Outlet, Link } from "react-router-dom";
 import { Cart } from "../../components/cart";
 import styles from "./root.module.css";
-import { getCartItems } from "../../api/endpoints";
+import { getCartItems, updateItemInCart } from "../../api/endpoints";
 
 export async function loader() {
   const cartItems = getCartItems();
   return { cartItems };
+}
+
+export async function action({ request }) {
+  let formData = await request.formData();
+  const addId = formData.get("add");
+  const removeId = formData.get("remove");
+  const { id, action } = addId
+    ? { action: "add", id: addId }
+    : { action: "remove", id: removeId };
+  updateItemInCart(id, action);
+  return null;
 }
 
 export default function Root() {

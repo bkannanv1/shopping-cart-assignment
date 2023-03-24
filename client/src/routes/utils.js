@@ -11,4 +11,7 @@ async function addToCartAction({ request }) {
   return addCartItems(itemId);
 }
 
-export { getAvailableCategories, addToCartAction };
+const getSelectedProduct = (itemId, products) =>
+  products.find((product) => product.id === itemId);
+
+export { getAvailableCategories, addToCartAction, getSelectedProduct };
