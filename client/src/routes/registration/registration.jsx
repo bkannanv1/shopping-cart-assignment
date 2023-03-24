@@ -42,7 +42,7 @@ export async function action({ request }) {
 // TODO: 1. "Type" Password
 // TODO: 2. Confirm password should be same
 // TODO: 3. Email Validation
-export default function Registration() {
+export function Registration() {
   return (
     <div className={styles.wrapper}>
       <div>

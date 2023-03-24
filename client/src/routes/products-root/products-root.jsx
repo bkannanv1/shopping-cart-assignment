@@ -9,7 +9,7 @@ export async function loader() {
   return { products, categories };
 }
 
-export default function ProductsRoot() {
+export function ProductsRoot() {
   const { categories } = useLoaderData();
 
   return (

@@ -1,15 +1,15 @@
 import React from "react";
 import { NavLink, useLoaderData } from "react-router-dom";
-import { getBannerAndCategories } from "../api/endpoints";
-import { getAvailableCategories } from "./utils";
-import styles from "./index.module.css";
+import { getBannerAndCategories } from "../../api/endpoints";
+import { getAvailableCategories } from "../utils";
+import styles from "./home.module.css";
 
 export async function loader() {
   const { banners, categories } = await getBannerAndCategories();
   return { banners, categories };
 }
 
-export default function Index() {
+export function Home() {
   const { banners, categories } = useLoaderData();
 
   return (

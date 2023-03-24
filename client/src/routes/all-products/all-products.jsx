@@ -10,7 +10,7 @@ export async function action({ request }) {
   return addCartItems(itemId);
 }
 
-export default function AllProducts() {
+export function AllProducts() {
   const { products } = useRouteLoaderData("products");
 
   return <ProductsGrid products={products} />;

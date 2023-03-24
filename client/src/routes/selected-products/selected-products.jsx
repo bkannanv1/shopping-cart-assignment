@@ -13,7 +13,13 @@ export async function loader({ params }) {
   return { categoryKey };
 }
 
-export default function SelectedProducts() {
+export async function action({ request }) {
+  let formData = await request.formData();
+  const itemId = formData.get("item");
+  return addCartItems(itemId);
+}
+
+export function SelectedProducts() {
   const { categoryKey } = useLoaderData();
   const { categories, products } = useRouteLoaderData("products");
 

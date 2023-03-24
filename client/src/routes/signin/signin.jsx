@@ -27,7 +27,7 @@ export async function action({ request }) {
   return redirect("/");
 }
 
-export default function SignIn() {
+export function SignIn() {
   return (
     <div className={styles.wrapper}>
       <div>

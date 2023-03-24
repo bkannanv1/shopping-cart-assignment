@@ -4,20 +4,6 @@ import Root, {
   action as RootAction,
 } from "./routes/root";
 import ErrorPage from "./error-page";
-import Index, { loader as IndexLoader } from "./routes/index";
-import Signin, { action as SignInAction } from "./routes/signin";
-import Registration, {
-  action as RegistrationAction,
-} from "./routes/registration";
-import ProductsRoot, {
-  loader as ProductsRootLoader,
-} from "./routes/products-root";
-import SelectedProducts, {
-  loader as SelectedProductsLoader,
-} from "./routes/selected-products";
-import AllProducts from "./routes/all-products";
-import { addToCartAction } from "./routes/utils";
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,13 +17,25 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Index />,
-            loader: IndexLoader,
+            async lazy() {
+              let { Home, loader } = await import("./routes/home");
+              return { Component: Home, loader };
+            },
           },
           {
             path: "products",
-            element: <ProductsRoot />,
-            loader: ProductsRootLoader,
+            async lazy() {
+              let { ProductsRoot, loader } = await import(
+                "./routes/products-root"
+              );
+              return { Component: ProductsRoot, loader };
+            },
+            /**
+             * This id is neccessary to fetch data from Parent component
+             * in child routes.
+             *
+             * Ref: https://reactrouter.com/en/main/hooks/use-route-loader-data
+             */
             id: "products",
             /**
              * Adding items to cart would update the `Root` component.
@@ -47,31 +45,46 @@ const router = createBrowserRouter([
              *
              * To Prevent that we are telling to react-router that the data on the products
              * list page are up to date and no need to revalidate.
+             *
+             * Ref: https://reactrouter.com/en/main/route/should-revalidate
              */
             shouldRevalidate: () => false,
             children: [
               {
                 index: true,
-                element: <AllProducts />,
-                action: addToCartAction,
+                async lazy() {
+                  let { AllProducts, action } = await import(
+                    "./routes/all-products"
+                  );
+                  return { Component: AllProducts, action };
+                },
               },
               {
                 path: ":categoryKey",
-                element: <SelectedProducts />,
-                loader: SelectedProductsLoader,
-                action: addToCartAction,
+                async lazy() {
+                  let { SelectedProducts, action, loader } = await import(
+                    "./routes/selected-products"
+                  );
+                  return { Component: SelectedProducts, action, loader };
+                },
               },
             ],
           },
           {
             path: "signin",
-            element: <Signin />,
-            action: SignInAction,
+            async lazy() {
+              let { SignIn, action } = await import("./routes/signin");
+              return { Component: SignIn, action };
+            },
           },
           {
             path: "register",
-            element: <Registration />,
-            action: RegistrationAction,
+            async lazy() {
+              let { Registration, action } = await import(
+                "./routes/registration"
+              );
+              return { Component: Registration, action };
+            },
           },
         ],
       },
