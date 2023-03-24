@@ -27,6 +27,13 @@ const BAZAAR_KEY = "users";
 // TODO: Error handling
 const registerUser = (newUser) => {
   try {
+    if (!newUser.email) {
+      return {
+        ok: false,
+        message: `Please provide valid email address`,
+      };
+    }
+
     const existingUsersRaw = window.localStorage.getItem(BAZAAR_KEY);
     const existingUsers = existingUsersRaw ? JSON.parse(existingUsersRaw) : [];
 
