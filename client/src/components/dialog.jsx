@@ -3,11 +3,11 @@ import styles from "./dialog.module.css";
 import { getSelectedProduct } from "../routes/utils";
 import { useFetcher } from "react-router-dom";
 
-function Dialog({ open, onOpenChange, products, cartItems }) {
+export function Dialog({ open, onOpenChange, products, cartItems }) {
   const fetcher = useFetcher();
 
   if (!products) {
-    return <div> Loading ... </div>;
+    return <div> Loading Products... </div>;
   }
 
   const cartDataDisplay = cartItems.map((item) => {
@@ -93,5 +93,3 @@ function CartItem({ item, fetcher }) {
     </div>
   );
 }
-
-export { Dialog };

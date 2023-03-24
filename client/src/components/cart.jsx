@@ -1,6 +1,11 @@
 import * as React from "react";
 import { useLoaderData, useFetcher } from "react-router-dom";
-import { Dialog } from "./dialog";
+const Dialog = React.lazy(() =>
+  /**
+   * Dynamically import a named export
+   */
+  import("./dialog").then((module) => ({ default: module.Dialog }))
+);
 
 function Cart() {
   const [cartOpen, setCartOpen] = React.useState(false);
@@ -23,12 +28,14 @@ function Cart() {
   return (
     <>
       {cartOpen && (
-        <Dialog
-          open={cartOpen}
-          onOpenChange={setCartOpen}
-          products={fetcher.data?.products}
-          cartItems={cartItems}
-        />
+        <React.Suspense fallback={<span>Dialog Loading ...</span>}>
+          <Dialog
+            open={cartOpen}
+            onOpenChange={setCartOpen}
+            products={fetcher.data?.products}
+            cartItems={cartItems}
+          />
+        </React.Suspense>
       )}
       <button onClick={handleCartOpen}>Cart {cartQuantity}</button>
     </>
