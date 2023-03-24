@@ -1,8 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Root, {
+import {
+  Root,
   loader as RootLoader,
   action as RootAction,
-} from "./routes/root";
+} from "./routes/root/root";
 import ErrorPage from "./error-page";
 const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
           {
             index: true,
             async lazy() {
-              let { Home, loader } = await import("./routes/home");
+              let { Home, loader } = await import("./routes/home/home");
               return { Component: Home, loader };
             },
           },
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
             path: "products",
             async lazy() {
               let { ProductsRoot, loader } = await import(
-                "./routes/products-root"
+                "./routes/products-root/products-root"
               );
               return { Component: ProductsRoot, loader };
             },
@@ -54,7 +55,7 @@ const router = createBrowserRouter([
                 index: true,
                 async lazy() {
                   let { AllProducts, action } = await import(
-                    "./routes/all-products"
+                    "./routes/all-products/all-products"
                   );
                   return { Component: AllProducts, action };
                 },
@@ -63,7 +64,7 @@ const router = createBrowserRouter([
                 path: ":categoryKey",
                 async lazy() {
                   let { SelectedProducts, action, loader } = await import(
-                    "./routes/selected-products"
+                    "./routes/selected-products/selected-products"
                   );
                   return { Component: SelectedProducts, action, loader };
                 },
@@ -73,7 +74,7 @@ const router = createBrowserRouter([
           {
             path: "signin",
             async lazy() {
-              let { SignIn, action } = await import("./routes/signin");
+              let { SignIn, action } = await import("./routes/signin/signin");
               return { Component: SignIn, action };
             },
           },
@@ -81,7 +82,7 @@ const router = createBrowserRouter([
             path: "register",
             async lazy() {
               let { Registration, action } = await import(
-                "./routes/registration"
+                "./routes/registration/registration"
               );
               return { Component: Registration, action };
             },

@@ -19,7 +19,7 @@ export async function action({ request }) {
   return null;
 }
 
-export default function Root() {
+export function Root() {
   return (
     <div className={styles.wrapper}>
       <header id="header" className={styles.header}>
