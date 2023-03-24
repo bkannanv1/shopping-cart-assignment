@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "./products-root.module.css";
-import { Outlet, NavLink, useLoaderData } from "react-router-dom";
+import { Outlet, useLoaderData } from "react-router-dom";
 import { getProductsAndCategories } from "../../api/endpoints";
 import { getAvailableCategories } from "../utils";
+import { NavLink } from "../../components/nav-link";
 
 export async function loader() {
   const { products, categories } = await getProductsAndCategories();

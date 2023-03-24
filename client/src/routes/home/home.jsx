@@ -1,6 +1,7 @@
 import React from "react";
-import { NavLink, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { getBannerAndCategories } from "../../api/endpoints";
+import { LinkButton } from "../../components/button";
 import { getAvailableCategories } from "../utils";
 import styles from "./home.module.css";
 
@@ -65,7 +66,7 @@ function CategoryCard({ category, order }) {
       <div className={`${styles.categoryInfoWrapper} ${infoOrder}`}>
         <p>{name}</p>
         <p>{description}</p>
-        <NavLink to={`products/${key}`}>{name}</NavLink>
+        <LinkButton to={`products/${key}`}>{name}</LinkButton>
       </div>
     </div>
   );

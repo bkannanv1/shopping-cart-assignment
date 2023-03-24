@@ -3,6 +3,7 @@ import styles from "./signin.module.css";
 import { Form, redirect } from "react-router-dom";
 import { loginUser } from "../../api/endpoints";
 import { Input } from "../../components/input";
+import { Button } from "../../components/button";
 
 const LOGIN_FIELDS = [
   {
@@ -39,7 +40,7 @@ export function SignIn() {
           {LOGIN_FIELDS.map((field) => (
             <Input key={field.name} label={field.label} name={field.name} />
           ))}
-          <button type="submit">Login</button>
+          <Button type="submit">Login</Button>
         </Form>
       </div>
     </div>

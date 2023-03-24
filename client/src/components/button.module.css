@@ -1,0 +1,17 @@
+.button {
+  background-color: var(--brand-primary);
+  color: var(--brand-white);
+
+  padding: 0.5rem;
+
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--brand-primary-dark);
+}
+
+.button:focus {
+  outline: 3px dotted var(--brand-primary);
+}

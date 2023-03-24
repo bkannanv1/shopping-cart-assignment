@@ -45,3 +45,21 @@ h6 {
 #root {
   isolation: isolate;
 }
+
+/*
+CSS Variables for Color
+*/
+
+:root {
+  /* Colors */
+  --brand-primary: hsl(335.36deg 98.1% 41.37%);
+  --brand-primary-dark: hsl(335.36deg 98.1% 31.37%);
+
+  --brand-secondary: hsl(188.77deg 63.73% 60%);
+  --brand-white: white;
+  /* Breakpoints */
+  --breakpoint-mobile: 550rem;
+  --breakpoint-tablet: 1100px;
+  --breakpoint-laptop: 1500px;
+  /* Sizes */
+}

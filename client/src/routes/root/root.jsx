@@ -1,7 +1,8 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Cart } from "../../components/cart";
 import styles from "./root.module.css";
 import { getCartItems, updateItemInCart } from "../../api/endpoints";
+import { NavLink } from "../../components/nav-link";
 
 export async function loader() {
   const cartItems = getCartItems();
@@ -28,18 +29,18 @@ export function Root() {
           <nav>
             <ul>
               <li>
-                <Link to={`/`}>Home</Link>
+                <NavLink to={`/`}>Home</NavLink>
               </li>
               <li>
-                <Link to={`/products`}>Products</Link>
+                <NavLink to={`/products`}>Products</NavLink>
               </li>
             </ul>
           </nav>
         </div>
         <div className={styles.buttonWrapper}>
           <div className="auth-buttons">
-            <Link to="/signin">Sign In</Link>
-            <Link to="/register">Register</Link>
+            <NavLink to="/signin">Sign In</NavLink>
+            <NavLink to="/register">Register</NavLink>
           </div>
           <Cart />
         </div>

@@ -3,6 +3,7 @@ import styles from "./registration.module.css";
 import { Form, redirect } from "react-router-dom";
 import { registerUser } from "../../api/endpoints";
 import { Input } from "../../components/input";
+import { Button } from "../../components/button";
 
 const REGISTRATION_FIELDS = [
   {
@@ -54,7 +55,7 @@ export function Registration() {
           {REGISTRATION_FIELDS.map((field) => (
             <Input key={field.name} label={field.label} name={field.name} />
           ))}
-          <button type="submit">SignUp</button>
+          <Button type="submit">Sign Up</Button>
         </Form>
       </div>
     </div>
