@@ -33,9 +33,9 @@ export function ProductsRoot() {
   const isInTabletAndAbove = useMediaQuery("(min-width: 550px)");
 
   const { categoryKey } = useParams();
-  const pathText = categories.find(
-    (category) => category.key === categoryKey
-  ).name;
+  const pathText =
+    categories.find((category) => category.key === categoryKey)?.name ||
+    "All Products";
 
   return (
     <div className={styles.wrapper}>
