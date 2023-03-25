@@ -14,10 +14,10 @@
 }
 
 .cartLogoWrapper {
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
 }
 
-.cartLogo {
-  width: 100%;
+.cartIcon {
+  fill: var(--brand-primary);
 }

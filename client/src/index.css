@@ -46,6 +46,10 @@ h6 {
   isolation: isolate;
 }
 
+body {
+  font-size: 1rem;
+}
+
 /*
 CSS Variables for Color
 */
@@ -60,10 +64,4 @@ CSS Variables for Color
 
   --brand-gray: hsl(0deg 0% 93.33%);
   --brand-gray100: hsl(0deg 0% 73.33%);
-
-  /* Breakpoints */
-  --breakpoint-mobile: 550px;
-  --breakpoint-tablet: 1100px;
-  --breakpoint-laptop: 1500px;
-  /* Sizes */
 }

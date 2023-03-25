@@ -1,3 +1,6 @@
+@value breakpoints: "../../styles/variables.css";
+@value bpMobile from breakpoints;
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -14,5 +17,10 @@
   flex: 1;
   width: 100%;
   margin: auto;
-  max-width: 80%;
+}
+
+@media (min-width: bpMobile) {
+  .main {
+    max-width: 80%;
+  }
 }
