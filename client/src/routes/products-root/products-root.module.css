@@ -1,10 +1,19 @@
+@value breakpoints: "../../styles/variables.css";
+@value bpMobile from breakpoints;
+
 .wrapper {
   display: flex;
+  flex-direction: column;
   height: 100%;
 }
 
 .categories {
-  border: 1px solid cyan;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px 12px;
+  background-color: var(--brand-gray);
+  flex-basis: 200px;
 }
 
 .productsWrapper {
@@ -14,4 +23,10 @@
   flex-wrap: wrap;
   gap: 16px;
   align-content: flex-start;
+}
+
+@media (min-width: bpMobile) {
+  .wrapper {
+    flex-direction: row;
+  }
 }
