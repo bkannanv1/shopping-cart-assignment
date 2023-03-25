@@ -13,7 +13,7 @@ export const fetchData = async (url) => {
 
 export const fetchDataParallely = async (promises) => {
   const response = await Promise.all(promises);
-  return await response;
+  return response;
 };
 
 export const getPromisesForJson = (responses) => {

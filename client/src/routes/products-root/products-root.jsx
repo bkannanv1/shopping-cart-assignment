@@ -27,7 +27,7 @@ export function ProductsRoot() {
           })}
         </ul>
       </div>
-      <div className={styles.products}>
+      <div className={styles.productsWrapper}>
         <Outlet />
       </div>
     </div>

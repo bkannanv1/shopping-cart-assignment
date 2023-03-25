@@ -15,7 +15,13 @@ function ProductCard({ product }) {
 
   return (
     <div className={styles.wrapper}>
-      <img src={imageURL} alt={`Picuture of ${name}`} />
+      <div className={styles.imgWrapper}>
+        <img
+          className={styles.img}
+          src={imageURL}
+          alt={`Picuture of ${name}`}
+        />
+      </div>
       <div className={styles.infoWrapper}>
         <p>{description}</p>
         <fetcher.Form method="post">
