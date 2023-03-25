@@ -1,8 +1,7 @@
 import { Outlet } from "react-router-dom";
-import { Cart } from "../../components/cart";
 import styles from "./root.module.css";
 import { getCartItems, updateItemInCart } from "../../api/endpoints";
-import { NavLink } from "../../components/nav-link";
+import { Header } from "../../components/header";
 
 export async function loader() {
   const cartItems = getCartItems();
@@ -23,28 +22,7 @@ export async function action({ request }) {
 export function Root() {
   return (
     <div className={styles.wrapper}>
-      <header id="header" className={styles.header}>
-        <div className={styles.navWrapper}>
-          <div>Image</div>
-          <nav>
-            <ul>
-              <li>
-                <NavLink to={`/`}>Home</NavLink>
-              </li>
-              <li>
-                <NavLink to={`/products`}>Products</NavLink>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div className={styles.buttonWrapper}>
-          <div className="auth-buttons">
-            <NavLink to="/signin">Sign In</NavLink>
-            <NavLink to="/register">Register</NavLink>
-          </div>
-          <Cart />
-        </div>
-      </header>
+      <Header />
       <main className={styles.main}>
         <Outlet />
       </main>

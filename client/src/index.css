@@ -57,8 +57,12 @@ CSS Variables for Color
 
   --brand-secondary: hsl(188.77deg 63.73% 60%);
   --brand-white: white;
+
+  --brand-gray: hsl(0deg 0% 93.33%);
+  --brand-gray100: hsl(0deg 0% 73.33%);
+
   /* Breakpoints */
-  --breakpoint-mobile: 550rem;
+  --breakpoint-mobile: 550px;
   --breakpoint-tablet: 1100px;
   --breakpoint-laptop: 1500px;
   /* Sizes */

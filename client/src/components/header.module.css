@@ -1,0 +1,38 @@
+@value breakpoints: "../styles/variables.css";
+@value bpMobile from breakpoints;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid red;
+  height: 60px;
+}
+
+.logoWrapper {
+  display: flex;
+}
+
+.navWrapper {
+  display: none;
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.authButtonWrapper {
+  display: none;
+}
+
+@media (min-width: bpMobile) {
+  .navWrapper,
+  .authButtonWrapper {
+    display: block;
+  }
+
+  .header {
+    border: 1px solid red;
+    height: 100px;
+  }
+}

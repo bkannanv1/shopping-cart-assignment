@@ -1,5 +1,8 @@
 import * as React from "react";
 import { useLoaderData, useFetcher } from "react-router-dom";
+import styles from "./cart.module.css";
+import cart from "/static/images/cart.svg";
+
 const Dialog = React.lazy(() =>
   /**
    * Dynamically import a named export
@@ -37,7 +40,12 @@ function Cart() {
           />
         </React.Suspense>
       )}
-      <button onClick={handleCartOpen}>Cart {cartQuantity}</button>
+      <button className={styles.cartButton} onClick={handleCartOpen}>
+        <div className={styles.cartLogoWrapper}>
+          <img src={cart} alt="Logo of Cart" className={styles.cartLogo} />
+        </div>
+        <p>{cartQuantity} items</p>
+      </button>
     </>
   );
 }

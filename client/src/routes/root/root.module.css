@@ -16,17 +16,3 @@
   margin: auto;
   max-width: 80%;
 }
-
-.header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.navWrapper {
-  display: flex;
-}
-
-.buttonWrapper {
-  display: flex;
-  flex-direction: column;
-}

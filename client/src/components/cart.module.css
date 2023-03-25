@@ -1,0 +1,23 @@
+.cartButton {
+  width: 140px;
+  height: 60px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 0;
+  background-color: var(--brand-gray);
+}
+
+.cartButton:hover {
+  background-color: var(--brand-gray100);
+}
+
+.cartLogoWrapper {
+  width: 25px;
+  height: 25px;
+}
+
+.cartLogo {
+  width: 100%;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./product-grid.module.css";
+import styles from "./products-grid.module.css";
 import { useFetcher } from "react-router-dom";
 
 function ProductsGrid({ products }) {
