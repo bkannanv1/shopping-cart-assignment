@@ -4,14 +4,14 @@ import { useFetcher } from "react-router-dom";
 import { Button } from "../components/button";
 
 function ProductsGrid({ products }) {
-  return products.map((product) => {
+  return products.map((product, index) => {
     const { id } = product;
-    return <ProductCard key={id} product={product} />;
+    return <ProductCard key={id} product={product} index={index} />;
   });
 }
 
-function ProductCard({ product }) {
-  const { name, imageURL, description, price, stock, sku, id } = product;
+function ProductCard({ product, index }) {
+  const { name, imageURL, description, price, id } = product;
   const fetcher = useFetcher();
 
   return (
@@ -25,6 +25,7 @@ function ProductCard({ product }) {
             alt={`Picuture of ${name}`}
             width="150"
             height="150"
+            loading={index > 8 ? "lazy" : "eager"}
           />
         </div>
         <div className={styles.infoWrapper}>
