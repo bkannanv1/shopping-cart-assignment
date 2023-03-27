@@ -1,0 +1,23 @@
+:global(.glider-slide img) {
+  margin: auto;
+}
+
+:global(button.glider-dot:focus) {
+  outline: 2px dashed var(--brand-primary);
+}
+
+:global(button.glider-prev:focus) {
+  outline: 2px dashed var(--brand-primary);
+}
+
+:global(button.glider-next:focus) {
+  outline: 2px dashed var(--brand-primary);
+}
+
+:global(.glider-dot.active) {
+  background-color: var(--brand-primary);
+}
+
+.wrapper {
+  box-shadow: 0px 10px 2px -6px var(--brand-gray100);
+}
