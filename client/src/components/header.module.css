@@ -2,18 +2,18 @@
 @value bpMobile from breakpoints;
 
 .header {
-  height: 60px;
+  height: 85px;
 }
 
 .headerContent {
   margin: auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .imageWrapper {
-  width: 110px;
-  padding: 8px;
+  width: 135px;
 }
 
 .navWrapper {
@@ -39,6 +39,7 @@
   .navWrapper {
     display: flex;
     gap: 16px;
+    margin-left: 32px;
   }
 
   .authButtonsWrapper {
@@ -50,6 +51,7 @@
 
   .imageWrapper {
     flex-basis: 200px;
+    padding: 8px;
   }
 
   .header {
