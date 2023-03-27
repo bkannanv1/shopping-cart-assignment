@@ -13,6 +13,10 @@
   background-color: var(--brand-gray100);
 }
 
+.cartButton:focus {
+  outline: 2px dashed var(--brand-primary);
+}
+
 .cartLogoWrapper {
   width: 35px;
   height: 35px;
