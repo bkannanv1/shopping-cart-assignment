@@ -6,8 +6,8 @@
   flex-direction: column;
   min-width: 350px;
   flex: 1;
-  border: 1px solid;
   padding: 8px 12px;
+  border-bottom: 1px dashed var(--brand-gray100);
 }
 
 .wrapper {
@@ -22,6 +22,7 @@
 .imgWrapper {
   min-width: 150px;
   min-height: 150px;
+  max-width: 150px;
 }
 
 .img {
@@ -32,6 +33,7 @@
   background-color: var(--brand-gray);
   font-size: 14px;
   margin-bottom: 8px;
+  padding: 8px;
 }
 
 .infoWrapper {
@@ -39,6 +41,7 @@
   flex-direction: column;
   padding: 8px 12px;
   justify-content: space-between;
+  flex: 1;
 }
 
 .buyLaptop {
@@ -52,6 +55,7 @@
 @media (min-width: bpMobile) {
   .cardWrapper {
     min-width: 350px;
+    box-shadow: 0px 0px 8px 4px var(--brand-gray);
   }
 }
 
@@ -64,10 +68,6 @@
   .imgWrapper {
     width: 200px;
     height: 200px;
-  }
-
-  .infoWrapper {
-    flex: 1;
   }
 }
 

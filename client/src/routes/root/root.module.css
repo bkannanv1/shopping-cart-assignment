@@ -7,16 +7,11 @@
   height: 100%;
 }
 
-.header,
-.main,
-.footer {
-  border: 1px solid red;
-}
-
 .main {
   flex: 1;
   width: 100%;
   margin: auto;
+  margin-top: 24px;
 }
 
 @media (min-width: bpMobile) {

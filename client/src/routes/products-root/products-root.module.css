@@ -17,12 +17,12 @@
 }
 
 .productsWrapper {
-  border: 1px dashed brown;
   flex: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   align-content: flex-start;
+  margin-left: 8px;
 }
 
 @media (min-width: bpMobile) {
