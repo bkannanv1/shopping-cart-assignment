@@ -2,6 +2,7 @@ import * as React from "react";
 import { useLoaderData, useFetcher } from "react-router-dom";
 import styles from "./cart.module.css";
 import { ReactComponent as CartIcon } from "../assets/cart.svg";
+import FocusLock from "react-focus-lock";
 
 const Dialog = React.lazy(() =>
   /**
@@ -32,12 +33,14 @@ function Cart() {
     <>
       {cartOpen && (
         <React.Suspense fallback={<span>Dialog Loading ...</span>}>
-          <Dialog
-            open={cartOpen}
-            onOpenChange={setCartOpen}
-            products={fetcher.data?.products}
-            cartItems={cartItems}
-          />
+          <FocusLock returnFocus>
+            <Dialog
+              open={cartOpen}
+              onOpenChange={setCartOpen}
+              products={fetcher.data?.products}
+              cartItems={cartItems}
+            />
+          </FocusLock>
         </React.Suspense>
       )}
       <button className={styles.cartButton} onClick={handleCartOpen}>
