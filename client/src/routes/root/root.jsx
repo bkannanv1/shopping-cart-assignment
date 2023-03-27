@@ -23,11 +23,13 @@ export async function action({ request }) {
 export function Root() {
   const navigation = useNavigation();
   const isLoading = navigation.state === "loading";
+  const loadingClass = isLoading ? styles.pendingUI : "";
   return (
     <div className={styles.wrapper}>
       <Header />
-      <main className={`${styles.main}`}>
-        {isLoading ? <Spinner /> : <Outlet />}
+      {isLoading ? <Spinner /> : null}
+      <main className={`${styles.main} ${loadingClass}`}>
+        <Outlet />
       </main>
       <footer className={styles.footer}>Copyright</footer>
     </div>
