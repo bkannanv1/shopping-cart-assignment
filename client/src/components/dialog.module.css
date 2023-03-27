@@ -58,23 +58,23 @@
 }
 
 .iconButton {
-  font-family: inherit;
-  border-radius: 100%;
-  height: 25px;
-  width: 25px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: violet;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  color: white;
+  background-color: black;
   position: absolute;
   top: 10px;
   right: 10px;
+  border: none;
+  cursor: pointer;
 }
 .iconButton:hover {
-  background-color: violet;
+  background-color: white;
+  color: black;
 }
 .iconButton:focus {
-  box-shadow: 0 0 0 2px violet;
+  box-shadow: 0 0 0 2px white;
 }
 
 @keyframes overlayShow {

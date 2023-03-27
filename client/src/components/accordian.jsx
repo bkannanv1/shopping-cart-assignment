@@ -1,6 +1,7 @@
 import React from "react";
 import * as RadixAccordian from "@radix-ui/react-accordion";
 import styles from "./accordian.module.css";
+import { ChevronDown } from "react-feather";
 
 const { root, item, header, trigger, content, contentText } = styles;
 
@@ -20,6 +21,7 @@ const AccordionTrigger = React.forwardRef(
     <RadixAccordian.Header className={header}>
       <RadixAccordian.Trigger className={trigger} {...props} ref={forwardedRef}>
         {children}
+        <ChevronDown className={styles.cheveronDown} aria-hidden />
       </RadixAccordian.Trigger>
     </RadixAccordian.Header>
   )

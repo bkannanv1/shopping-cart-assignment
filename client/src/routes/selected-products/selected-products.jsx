@@ -7,6 +7,7 @@ import {
   useRouteLoaderData,
 } from "react-router-dom";
 import { ProductsGrid } from "../../components/products-grid";
+import { addCartItems } from "../../api/endpoints";
 
 export async function loader({ params }) {
   const categoryKey = params.categoryKey;

@@ -42,6 +42,10 @@
   padding: 15px 10px;
 }
 
+.trigger[data-state="open"] > .cheveronDown {
+  transform: rotate(180deg);
+}
+
 @keyframes slideDown {
   from {
     height: 0;

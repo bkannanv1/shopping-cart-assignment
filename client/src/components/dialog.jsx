@@ -3,6 +3,7 @@ import styles from "./dialog.module.css";
 import { getSelectedProduct } from "../routes/utils";
 import { useFetcher } from "react-router-dom";
 import { Button, IconButton } from "./button";
+import { X, Minus, Plus } from "react-feather";
 
 export function Dialog({ open, onOpenChange, products, cartItems }) {
   const fetcher = useFetcher();
@@ -43,7 +44,7 @@ export function Dialog({ open, onOpenChange, products, cartItems }) {
 
           <RadixDialog.Close asChild>
             <button className={styles.iconButton} aria-label="Close">
-              Close
+              <X />
             </button>
           </RadixDialog.Close>
 
@@ -91,7 +92,6 @@ export function Dialog({ open, onOpenChange, products, cartItems }) {
 
 function CartItem({ item, fetcher }) {
   const { imageURL, quantity, id, name, price } = item;
-  console.log("item:", item);
   const totalPrice = quantity * price;
   return (
     <div className={styles.cartItemWrapper}>
@@ -105,11 +105,11 @@ function CartItem({ item, fetcher }) {
         <div className={styles.quantitySection}>
           <fetcher.Form method="post">
             <IconButton name="remove" value={id}>
-              -
+              <Minus size={"12"} />
             </IconButton>
             {quantity}
             <IconButton name="add" value={id}>
-              +
+              <Plus size={"12"} />
             </IconButton>
           </fetcher.Form>
           x Rs. {price}
