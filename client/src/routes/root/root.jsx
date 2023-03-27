@@ -1,7 +1,8 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
 import styles from "./root.module.css";
 import { getCartItems, updateItemInCart } from "../../api/endpoints";
 import { Header } from "../../components/header";
+import { Spinner } from "../../components/spinner";
 
 export async function loader() {
   const cartItems = getCartItems();
@@ -20,11 +21,13 @@ export async function action({ request }) {
 }
 
 export function Root() {
+  const navigation = useNavigation();
+  const isLoading = navigation.state === "loading";
   return (
     <div className={styles.wrapper}>
       <Header />
-      <main className={styles.main}>
-        <Outlet />
+      <main className={`${styles.main}`}>
+        {isLoading ? <Spinner /> : <Outlet />}
       </main>
       <footer className={styles.footer}>Copyright</footer>
     </div>
