@@ -15,3 +15,10 @@
 .button:focus {
   outline: 3px dotted var(--brand-primary);
 }
+
+.iconButton {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+}

@@ -2,6 +2,7 @@ import * as RadixDialog from "@radix-ui/react-dialog";
 import styles from "./dialog.module.css";
 import { getSelectedProduct } from "../routes/utils";
 import { useFetcher } from "react-router-dom";
+import { Button, IconButton } from "./button";
 
 export function Dialog({ open, onOpenChange, products, cartItems }) {
   const fetcher = useFetcher();
@@ -22,18 +23,23 @@ export function Dialog({ open, onOpenChange, products, cartItems }) {
     return acc + price * quantity;
   }, 0);
 
+  const areCartItmesAvailable = cartDataDisplay.length > 0;
+
   return (
     <RadixDialog.Root open={open} onOpenChange={onOpenChange}>
       <RadixDialog.Portal>
         <RadixDialog.Overlay className={styles.dialogOverlay} />
-        <RadixDialog.Content className={styles.dialogContent}>
+        <RadixDialog.Content
+          className={styles.dialogContent}
+          style={{
+            "--cart-bg": !areCartItmesAvailable
+              ? "white"
+              : "hsl(0deg 0% 93.33%)",
+          }}
+        >
           <RadixDialog.Title className={styles.dialogTitle}>
             My Cart
           </RadixDialog.Title>
-
-          <RadixDialog.Description className={styles.dialogDescription}>
-            Cart Items
-          </RadixDialog.Description>
 
           <RadixDialog.Close asChild>
             <button className={styles.iconButton} aria-label="Close">
@@ -41,23 +47,40 @@ export function Dialog({ open, onOpenChange, products, cartItems }) {
             </button>
           </RadixDialog.Close>
 
-          {cartDataDisplay.length > 0
-            ? cartDataDisplay.map((item) => (
+          <div
+            className={`${styles.contentWrapper} ${
+              !areCartItmesAvailable ? styles.noItems : ""
+            }`}
+          >
+            {areCartItmesAvailable ? (
+              cartDataDisplay.map((item) => (
                 <CartItem item={item} key={item.id} fetcher={fetcher} />
               ))
-            : null}
-
-          <div>Total: {totalPrice}</div>
+            ) : (
+              <div className={styles.noItemsWrapper}>
+                <p>No items in your Cart!</p>
+                <p>Your favorite items are just a click away</p>
+              </div>
+            )}
+          </div>
 
           <div
+            className={styles.buttonWrapper}
             style={{
-              display: "flex",
-              marginTop: 25,
-              justifyContent: "flex-end",
+              "--btn-spacing": areCartItmesAvailable
+                ? "space-between"
+                : "center",
             }}
           >
+            {areCartItmesAvailable && (
+              <p>Promo code can be applied on payment page</p>
+            )}
             <RadixDialog.Close asChild>
-              <button>Save changes</button>
+              <Button>
+                {areCartItmesAvailable && <span>Proceed to Checkout</span>}
+                {areCartItmesAvailable && <span>Rs. {totalPrice}</span>}
+                {!areCartItmesAvailable && <span>Start Shopping</span>}
+              </Button>
             </RadixDialog.Close>
           </div>
         </RadixDialog.Content>
@@ -68,6 +91,8 @@ export function Dialog({ open, onOpenChange, products, cartItems }) {
 
 function CartItem({ item, fetcher }) {
   const { imageURL, quantity, id, name, price } = item;
+  console.log("item:", item);
+  const totalPrice = quantity * price;
   return (
     <div className={styles.cartItemWrapper}>
       <img
@@ -76,20 +101,21 @@ function CartItem({ item, fetcher }) {
         alt={`Image of ${name}`}
       />
       <div className={styles.nameSection}>
-        <p>{name}</p>
+        <p className={styles.name}>{name}</p>
         <div className={styles.quantitySection}>
           <fetcher.Form method="post">
-            <button name="remove" value={id}>
+            <IconButton name="remove" value={id}>
               -
-            </button>
+            </IconButton>
             {quantity}
-            <button name="add" value={id}>
+            <IconButton name="add" value={id}>
               +
-            </button>
+            </IconButton>
           </fetcher.Form>
+          x Rs. {price}
         </div>
       </div>
-      <p>Price : {price}</p>
+      <p className={styles.priceSection}>Rs : {totalPrice}</p>
     </div>
   );
 }

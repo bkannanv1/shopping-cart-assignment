@@ -14,3 +14,7 @@ export function LinkButton({ to, ...rest }) {
   const navigate = useNavigate();
   return <Button onClick={() => navigate(to)} {...rest} />;
 }
+
+export function IconButton(props) {
+  return <Button className={styles.iconButton} {...props} />;
+}
