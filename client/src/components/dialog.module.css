@@ -39,6 +39,8 @@
 
 .contentWrapper {
   flex: 1;
+  overflow: auto;
+  margin-bottom: 8px;
 }
 
 .contentWrapper.noItems {
