@@ -24,7 +24,12 @@ function Banner({ banners }) {
 function BannerCard({ bannerImageUrl, bannerImageAlt }) {
   return (
     <div>
-      <img src={bannerImageUrl} alt={bannerImageAlt} loading="lazy" />
+      <img
+        src={bannerImageUrl}
+        alt={bannerImageAlt}
+        width="1000"
+        height="300"
+      />
     </div>
   );
 }
