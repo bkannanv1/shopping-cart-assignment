@@ -1,22 +1,94 @@
-.wrapper {
+@value breakpoints: "../styles/variables.css";
+@value bpMobile, bpTablet, bpLaptop  from breakpoints;
+
+.cardWrapper {
   display: flex;
   flex-direction: column;
-  width: 250px;
-  max-width: 250px;
+  min-width: 350px;
   flex: 1;
   border: 1px solid;
+  padding: 8px 12px;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.title {
+  font-weight: 700;
+  margin-bottom: 16px;
 }
 
 .imgWrapper {
-  width: 200px;
-  height: 200px;
+  min-width: 150px;
+  min-height: 150px;
 }
 
 .img {
   width: 100%;
 }
 
+.description {
+  background-color: var(--brand-gray);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
 .infoWrapper {
   display: flex;
   flex-direction: column;
+  padding: 8px 12px;
+  justify-content: space-between;
+}
+
+.buyLaptop {
+  display: none;
+}
+
+.card_button {
+  width: 100%;
+}
+
+@media (min-width: bpMobile) {
+  .cardWrapper {
+    min-width: 350px;
+  }
+}
+
+@media (min-width: bpTablet) {
+  .wrapper {
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .imgWrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .infoWrapper {
+    flex: 1;
+  }
+}
+
+@media (min-width: bpLaptop) {
+  .buyLaptop {
+    display: block;
+    margin-top: 12px;
+  }
+
+  .buyLaptop form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .buyLaptop form > p,
+  .buyLaptop form > button {
+    width: 150px;
+  }
+
+  .buyMobile {
+    display: none;
+  }
 }

@@ -2,9 +2,9 @@ import React from "react";
 import styles from "./button.module.css";
 import { useNavigate } from "react-router-dom";
 
-export function Button({ children, type = "submit", ...rest }) {
+export function Button({ children, type = "submit", className = "", ...rest }) {
   return (
-    <button className={styles.button} type={type} {...rest}>
+    <button className={`${styles.button} ${className}`} type={type} {...rest}>
       {children}
     </button>
   );

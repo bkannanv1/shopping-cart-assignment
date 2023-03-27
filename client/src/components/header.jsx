@@ -8,7 +8,9 @@ function Header() {
     <header id="header" className={styles.header}>
       <div className={styles.headerContent}>
         <div className={styles.imageWrapper}>
-          <img src="/static/images/logo.png" alt="logo of Sabka Bazaar" />
+          <NavLink to="/">
+            <img src="/static/images/logo.png" alt="logo of Sabka Bazaar" />
+          </NavLink>
         </div>
         <div className={styles.navigationWrapper}>
           <div className={styles.authButtonsWrapper}>
