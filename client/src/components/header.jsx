@@ -9,7 +9,12 @@ function Header() {
       <div className={styles.headerContent}>
         <div className={styles.imageWrapper}>
           <NavLink to="/">
-            <img src="/static/images/logo.png" alt="logo of Sabka Bazaar" />
+            <img
+              src="/static/images/logo.png"
+              alt="logo of Sabka Bazaar"
+              width="185"
+              height="85"
+            />
           </NavLink>
         </div>
         <div className={styles.navigationWrapper}>

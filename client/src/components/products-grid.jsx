@@ -23,6 +23,8 @@ function ProductCard({ product }) {
             className={styles.img}
             src={imageURL}
             alt={`Picuture of ${name}`}
+            width="150"
+            height="150"
           />
         </div>
         <div className={styles.infoWrapper}>
