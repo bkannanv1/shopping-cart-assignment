@@ -2,7 +2,7 @@
   text-decoration: none;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  color: inherit;
+  color: var(--link-active);
 }
 
 .link:hover {

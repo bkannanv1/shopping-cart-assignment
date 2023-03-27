@@ -27,7 +27,13 @@ function CategoryLinks({ categories }) {
         const { name, id, key } = category;
         return (
           <React.Fragment key={id}>
-            <NavLink to={key}>{name}</NavLink>
+            <NavLink
+              to={key}
+              className={styles.category}
+              activeLinkClassName={styles.categoryActive}
+            >
+              {name}
+            </NavLink>
             <hr />
           </React.Fragment>
         );
