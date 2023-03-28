@@ -46,7 +46,7 @@ export async function action({ request }) {
 export function Registration() {
   return (
     <div className={styles.wrapper}>
-      <div>
+      <div className={styles.infoWrapper}>
         <h1>Signup</h1>
         <p>We won't share personale details with anyone.</p>
       </div>
@@ -55,7 +55,9 @@ export function Registration() {
           {REGISTRATION_FIELDS.map((field) => (
             <Input key={field.name} label={field.label} name={field.name} />
           ))}
-          <Button type="submit">Sign Up</Button>
+          <Button type="submit" className={styles.submit}>
+            Sign Up
+          </Button>
         </Form>
       </div>
     </div>

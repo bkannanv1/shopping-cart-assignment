@@ -1,4 +1,73 @@
+/**
+* CSS from https://codepen.io/lucasyem/pen/ZEEYKdj
+*/
+
 .formLabel {
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.formGroup {
+  position: relative;
+  padding: 20px 0 0;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.formField {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid var(--brand-gray);
+  outline: 0;
+  font-size: 1.3rem;
+  color: inherit;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.formField::placeholder {
+  color: transparent;
+}
+
+.formField:placeholder-shown ~ .formLabel {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+
+.formLabel {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: var(--brand-gray200);
+}
+
+.formField:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-bottom: 2px solid var(--brand-secondary);
+  border-image-slice: 1;
+}
+
+.formField:focus ~ .formLabel {
+  position: absolute;
+  top: -10px;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: var(--brand-secondary);
+  font-weight: 700;
+}
+
+/* reset input */
+.formField:required {
+  box-shadow: none;
+}
+.formField:invalid {
+  box-shadow: none;
 }

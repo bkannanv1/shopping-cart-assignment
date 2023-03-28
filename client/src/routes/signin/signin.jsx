@@ -31,7 +31,7 @@ export async function action({ request }) {
 export function SignIn() {
   return (
     <div className={styles.wrapper}>
-      <div>
+      <div className={styles.infoWrapper}>
         <h1>Login</h1>
         <p>Get access to your Orders, Wishlist and Recommendations</p>
       </div>
@@ -40,7 +40,9 @@ export function SignIn() {
           {LOGIN_FIELDS.map((field) => (
             <Input key={field.name} label={field.label} name={field.name} />
           ))}
-          <Button type="submit">Login</Button>
+          <Button className={styles.submit} type="submit">
+            Login
+          </Button>
         </Form>
       </div>
     </div>

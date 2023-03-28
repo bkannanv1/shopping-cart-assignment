@@ -9,3 +9,15 @@
   display: flex;
   flex-direction: column;
 }
+
+.infoWrapper {
+  width: 50%;
+}
+
+.formWrapper {
+  width: 50%;
+}
+
+.submit {
+  margin-top: 24px;
+}

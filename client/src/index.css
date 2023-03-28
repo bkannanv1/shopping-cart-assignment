@@ -59,9 +59,10 @@ CSS Variables for Color
   --brand-primary: hsl(335.36deg 98.1% 41.37%);
   --brand-primary-dark: hsl(335.36deg 98.1% 31.37%);
 
-  --brand-secondary: hsl(188.77deg 63.73% 60%);
+  --brand-secondary: hsl(188.77deg 63.73% 30%);
   --brand-white: white;
 
   --brand-gray: hsl(0deg 0% 93.33%);
   --brand-gray100: hsl(0deg 0% 73.33%);
+  --brand-gray200: hsl(0deg 0.41% 41.61%);
 }
