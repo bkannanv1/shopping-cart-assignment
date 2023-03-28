@@ -31,7 +31,9 @@ export function Root() {
       <main className={`${styles.main} ${loadingClass}`}>
         <Outlet />
       </main>
-      <footer className={styles.footer}>Copyright</footer>
+      <footer className={styles.footer}>
+        Copyright 2023. Sabka Bazaar Supplies PVT Ltd
+      </footer>
     </div>
   );
 }

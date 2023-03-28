@@ -1,6 +1,10 @@
+@value breakpoints: "../../styles/variables.css";
+@value bpMobile from breakpoints;
+
 .wrapper {
   display: flex;
   height: 100%;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -26,4 +30,10 @@
 .passwordHelper {
   color: var(--brand-gray200);
   margin-top: 5px;
+}
+
+@media (min-width: bpMobile) {
+  .wrapper {
+    flex-direction: row;
+  }
 }

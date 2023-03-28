@@ -24,3 +24,8 @@
     margin-top: 24px;
   }
 }
+
+.footer {
+  background-color: var(--brand-gray);
+  text-align: center;
+}

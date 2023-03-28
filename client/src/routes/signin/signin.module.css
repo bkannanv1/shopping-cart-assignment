@@ -1,6 +1,10 @@
+@value breakpoints: "../../styles/variables.css";
+@value bpMobile from breakpoints;
+
 .wrapper {
   display: flex;
   height: 100%;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -25,4 +29,10 @@
 .error {
   color: var(--brand-red);
   margin-top: 18px;
+}
+
+@media (min-width: bpMobile) {
+  .wrapper {
+    flex-direction: row;
+  }
 }
