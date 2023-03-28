@@ -51,13 +51,13 @@
     height: 0;
   }
   to {
-    height: 280px;
+    height: 360px;
   }
 }
 
 @keyframes slideUp {
   from {
-    height: 280px;
+    height: 360px;
   }
   to {
     height: 0;

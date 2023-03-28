@@ -13,7 +13,7 @@ function Input({ name, label, type = "text", minlength, pattern }) {
         className={styles.formField}
         placeholder={label}
         required={true}
-        {...(minlength ? { minlength } : {})}
+        {...(minlength ? { minLength: minlength } : {})}
         {...(pattern ? { pattern } : {})}
       />
       <label htmlFor={name} className={styles.formLabel}>

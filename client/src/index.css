@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Dosis:400,600,700&display=swap");
+
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
@@ -48,6 +50,7 @@ h6 {
 
 body {
   font-size: 1rem;
+  font-family: "Dosis", sans-serif;
 }
 
 /*
