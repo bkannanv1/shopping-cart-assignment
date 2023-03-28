@@ -65,4 +65,6 @@ CSS Variables for Color
   --brand-gray: hsl(0deg 0% 93.33%);
   --brand-gray100: hsl(0deg 0% 73.33%);
   --brand-gray200: hsl(0deg 0.41% 41.61%);
+
+  --brand-red: red;
 }

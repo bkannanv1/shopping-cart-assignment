@@ -3,15 +3,18 @@ import styles from "./input.module.css";
 /**
  * CSS from https://codepen.io/lucasyem/pen/ZEEYKdj
  */
-function Input({ name, label }) {
+function Input({ name, label, type = "text", minlength, pattern }) {
   return (
     <div className={styles.formGroup}>
       <input
-        type="text"
+        type={type}
         id={name}
         name={name}
         className={styles.formField}
         placeholder={label}
+        required={true}
+        {...(minlength ? { minlength } : {})}
+        {...(pattern ? { pattern } : {})}
       />
       <label htmlFor={name} className={styles.formLabel}>
         {label}

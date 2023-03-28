@@ -18,3 +18,12 @@
 .submit {
   margin-top: 24px;
 }
+
+.error {
+  color: var(--brand-red);
+}
+
+.passwordHelper {
+  color: var(--brand-gray200);
+  margin-top: 5px;
+}

@@ -21,3 +21,8 @@
 .submit {
   margin-top: 24px;
 }
+
+.error {
+  color: var(--brand-red);
+  margin-top: 18px;
+}

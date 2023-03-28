@@ -84,6 +84,7 @@ const loginUser = (userInfo) => {
     return {
       ok: true,
       message: "Success!",
+      firstName: isValidUser.firstName,
     };
   } catch (error) {
     console.error(error);
