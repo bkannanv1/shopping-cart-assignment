@@ -18,7 +18,12 @@ function Cart() {
 
   const numberOfItems = cartItems.length;
 
-  const cartQuantity = numberOfItems > 0 ? `(${numberOfItems})` : "";
+  const cartQuantityText =
+    numberOfItems > 0
+      ? numberOfItems === 1
+        ? `(${numberOfItems}) Item`
+        : `(${numberOfItems}) Items`
+      : "No Items";
 
   const fetcher = useFetcher();
 
@@ -47,7 +52,7 @@ function Cart() {
         <div className={styles.cartLogoWrapper}>
           <CartIcon className={styles.cartIcon} />
         </div>
-        <p>{cartQuantity} items</p>
+        <p>{cartQuantityText}</p>
       </button>
     </>
   );
