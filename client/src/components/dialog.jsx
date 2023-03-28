@@ -4,6 +4,7 @@ import { getSelectedProduct } from "../routes/utils";
 import { useFetcher } from "react-router-dom";
 import { Button, IconButton } from "./button";
 import { X, Minus, Plus } from "react-feather";
+import { VisuallyHidden } from "./visually-hidden";
 
 export function Dialog({ open, onOpenChange, products, cartItems }) {
   const fetcher = useFetcher();
@@ -106,10 +107,12 @@ function CartItem({ item, fetcher }) {
           <fetcher.Form method="post">
             <IconButton name="remove" value={id}>
               <Minus size={"12"} />
+              <VisuallyHidden>Remove</VisuallyHidden>
             </IconButton>
             {quantity}
             <IconButton name="add" value={id}>
               <Plus size={"12"} />
+              <VisuallyHidden>Add</VisuallyHidden>
             </IconButton>
           </fetcher.Form>
           x Rs. {price}
