@@ -5,7 +5,7 @@ The frontend is built using react with [Vite](https://vitejs.dev/).
 ## Highlights
 
 - Uses [React Router v6+](https://reactrouter.com/en/main)
-  - No more data fetching with `useEffect`. 
+  - No more data fetching with `useEffect`.
   - All the data are loaded by new [Data Loader APIs](https://reactrouter.com/en/main/start/overview#data-loading).
   - Uses [Nested Layouts](https://reactrouter.com/en/main/start/overview#nested-routes) for parallel data fetching.
   - All the routes are [lazy-loaded](https://reactrouter.com/en/main/route/lazy#lazy) for faster load times.
@@ -82,12 +82,13 @@ You should now be able to test all the functionalities.
 
 1. Why not Create React App?
 
-TODO
+[Vite is the official recommendation from React team](https://react.dev/learn/start-a-new-react-project#can-i-use-react-without-a-framework)
+[Future of Create React App](https://github.com/reactjs/react.dev/pull/5487#issuecomment-1409720741)
 
 2. Why Vite?
 
-TODO
+Ans: https://vitejs.dev/guide/why.html
 
 3. What are the benefits of fetching data with React Router Apis?
 
-TODO
+Ans: [When to fetch](https://www.youtube.com/watch?v=95B8mnhzoCM)
