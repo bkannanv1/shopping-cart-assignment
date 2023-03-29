@@ -36,15 +36,21 @@ function CategoryCard({ category, order }) {
       ? [styles.oddPosition, styles.evenPosition]
       : [styles.evenPosition, styles.oddPosition];
 
+  const [fileName, extension] = imageUrl.split(".");
+  const smallURL = `${fileName}-small.${extension}`;
+
   return (
     <div className={styles.categoryWrapper}>
       <div className={`${styles.imgWrapper}  ${imageOrder}`}>
         <img
           className={`${styles.categoryImage}`}
+          srcSet={`${smallURL} 320w, ${imageUrl} 800w`}
+          /**
+           * Produced by running: https://github.com/ausi/respimagelint
+           */
+          sizes="(min-width: 880px) 280px, (min-width: 560px) calc(29.67vw + 25px), (min-width: 420px) 42.5vw, 38vw"
           src={imageUrl}
           alt={`${name}-image`}
-          width="200"
-          height="180"
           loading="lazy"
         />
       </div>
