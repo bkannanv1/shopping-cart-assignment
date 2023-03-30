@@ -24,7 +24,6 @@ const getProductsAndCategories = async () => {
 
 const BAZAAR_KEY = "users";
 
-// TODO: Error handling
 const registerUser = (newUser) => {
   try {
     if (!newUser.email) {
@@ -63,7 +62,6 @@ const registerUser = (newUser) => {
   }
 };
 
-// TODO: Error handling
 const loginUser = (userInfo) => {
   try {
     const existingUsersRaw = window.localStorage.getItem(BAZAAR_KEY);

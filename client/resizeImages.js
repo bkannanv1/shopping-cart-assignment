@@ -5,6 +5,9 @@ import path from "path";
 const sourceDir = "./public/static/images/offers";
 const targetDir = "./public/static/images/resized";
 
+/**
+ * Node script to resize images.
+ */
 fs.readdirSync(sourceDir).forEach((file) => {
   console.log("file:", file);
   const extension = path.extname(file);
