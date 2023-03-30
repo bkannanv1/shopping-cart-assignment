@@ -78,12 +78,27 @@ npm run preview
 
 You should now be able to test all the functionalities.
 
+## Lighthouse Results
+
+### Desktop
+
+![Home Page on Desktop](lighthouse/home.png)
+![Products on Desktop](lighthouse/plp.png)
+![Products with Filter on Desktop](lighthouse/plp_filter.png)
+![Sign In Page on Desktop](lighthouse/signin.png)
+![Registration Page on Desktop](lighthouse/registration.png)
+
+### Mobile
+
+![Home Page on Mobile](lighthouse/mobile-home.png)
+![Products on Mobile](lighthouse/mobile-plp.png)
+
 ## FAQ
 
 1. Why not Create React App?
 
-[Vite is the official recommendation from React team](https://react.dev/learn/start-a-new-react-project#can-i-use-react-without-a-framework)
-[Future of Create React App](https://github.com/reactjs/react.dev/pull/5487#issuecomment-1409720741)
+- [Vite is the official recommendation from React team](https://react.dev/learn/start-a-new-react-project#can-i-use-react-without-a-framework)
+- [Future of Create React App](https://github.com/reactjs/react.dev/pull/5487#issuecomment-1409720741)
 
 2. Why Vite?
 
